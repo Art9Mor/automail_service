@@ -12,9 +12,9 @@ def my_job():
     month = timedelta(days=30, hours=0, minutes=0)
 
     mailings = Mailing.objects.all().filter(status='Создана')\
-        .filter(is_activated=True)\
-        .filter(next_date__lte=datetime.now(pytz.timezone('Europe/Moscow')))\
-        .filter(end_date__gte=datetime.now(pytz.timezone('Europe/Moscow')))
+        .filter(is_active=True)\
+        .filter(next_date__lte=datetime.now(pytz.timezone('Asia/Novosibirsk')))\
+        .filter(end_date__gte=datetime.now(pytz.timezone('Asia/Novosibirsk')))
 
     for mailing in mailings:
         mailing.status = 'Запущена'
@@ -70,8 +70,8 @@ def get_cache_for_active_mailings():
         key = 'active_mailings_count'
         active_mailings_count = cache.get(key)
         if active_mailings_count is None:
-            active_mailings_count = Mailing.objects.filter(is_activated=True).count()
+            active_mailings_count = Mailing.objects.filter(is_active=True).count()
             cache.set(key, active_mailings_count)
     else:
-        active_mailings_count = Mailing.objects.filter(is_activated=True).count()
+        active_mailings_count = Mailing.objects.filter(is_active=True).count()
     return active_mailings_count
