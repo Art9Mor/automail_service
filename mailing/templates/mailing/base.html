@@ -14,9 +14,9 @@
         <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:index' %}">На главную</a>
 
         {% if user.is_authenticated %}
-            <a class="p-2 btn btn-outline-primary" href="{% url 'mailings:mailing_list' %}">Рассылки</a>
-            <a class="p-2 btn btn-outline-primary" href="{% url 'mailings:message_list' %}">Сообщения</a>
-            <a class="p-2 btn btn-outline-primary" href="{% url 'mailings:client_list' %}">Клиенты</a>
+            <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:mailing_list' %}">Рассылки</a>
+            <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:message_list' %}">Сообщения</a>
+            <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:client_list' %}">Клиенты</a>
         {% endif %}
 
         {% if perms.mailings.set_is_active %}
