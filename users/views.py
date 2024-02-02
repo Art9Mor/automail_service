@@ -59,7 +59,7 @@ class UserUpdateView(PermissionRequiredMixin, UpdateView):
     model = User
     form_class = ModeratorForm
     permission_required = 'set_is_active'
-    success_url = 'users:users_list'
+    success_url = 'users:user_list'
 
     def get_success_url(self):
         return reverse('users:list_view')
@@ -73,4 +73,4 @@ def get_users_list(request):
         'object_list': users_list,
         'title': 'Список пользователей сервиса',
     }
-    return render(request, 'users/users_list.html', context)
+    return render(request, 'users/user_list.html', context)
