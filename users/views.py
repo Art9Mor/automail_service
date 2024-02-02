@@ -1,23 +1,23 @@
 from django.conf import settings
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.contrib.auth.views import LoginView, LogoutView
+# from django.contrib.auth.views import LoginView, LogoutView
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.views.generic import CreateView, UpdateView, View
+from django.views.generic import CreateView, UpdateView
 from users.forms import RegisterForm, ModeratorForm
 from users.models import User
 from django.utils.crypto import get_random_string
 
 
-class UserLoginView(LoginView):
-    template_name = 'users/login.html'
-
-
-class UserLogoutView(LogoutView):
-    pass
+# class UserLoginView(LoginView):
+#     template_name = 'users/login.html'
+#
+#
+# class UserLogoutView(LogoutView):
+#     pass
 
 
 class RegisterView(CreateView):
